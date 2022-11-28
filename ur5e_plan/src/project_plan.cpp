@@ -100,9 +100,9 @@ int main(int argc, char **argv)
     // geometry info
     Eigen::Quaterniond tool_tcp_orientation(1, 0, 0, 0);
     //<<<<<<< HEAD
-    Eigen::Vector3d tool_tcp_translation(0, 0, -0.17);                                                        // after calibration
-    Eigen::Quaterniond tool_cam_orientatoin(0.494830699069, 0.489293676245, -0.504172738262, 0.511413851629); // after calibration
-    Eigen::Vector3d tool_cam_translation(0.00100323541413, -0.0877033481828, 0.119296843695);                 // after calibration
+    Eigen::Vector3d tool_tcp_translation(0, 0, -0.179);                                                        // after calibration
+    Eigen::Quaterniond tool_cam_orientatoin(0.509627666175, 0.500178663526,  -0.49905447011, 0.490963931755); // after calibration
+    Eigen::Vector3d tool_cam_translation(-0.0019950872303, -0.091608940629, 0.131265995919);                 // after calibration
     Eigen::Quaterniond bias(0, 0.707, 0, -0.707);
     //=======
     // Eigen::Vector3d tool_tcp_translation(0, 0, -0.20); //tool0 to tcp
@@ -260,7 +260,7 @@ int main(int argc, char **argv)
             std::cout << "Caution: moving to the pre-place pose!" << std::endl;
             arm.setNamedTarget("2nd_reco_start"); // second reco state, for the best top-looking view
             arm.move();
-            sleep(1);
+            sleep(5);
 
             reco_trigger_msg.data = 2;
             reco_trigger_pub.publish(reco_trigger_msg);
